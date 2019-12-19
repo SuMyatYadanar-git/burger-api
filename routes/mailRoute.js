@@ -1,10 +1,9 @@
-// const express = require('express')
+const express = require('express')
 
-// const { postMail } = require('../controller/mailController')
+const { postMail } = require('../controller/mailController')
 
-// const router = express.Router()
+const router = express.Router()
 
-// router.post('/', postMail)
+router.post('/', postMail)
 
-
-// module.exports = router
+module.exports = router

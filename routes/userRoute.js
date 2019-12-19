@@ -8,8 +8,8 @@ const { getLoginData, changePwd, changeUserName } = require('../controller/userC
 
 router.get('/:id', getLoginData)
 
-router.patch('/change-pwd', changePwd)
+router.patch('/change-pwd', authenticationMiddleware,changePwd)
 
-router.patch('/change-name',  changeUserName)
+router.put('/change-name', authenticationMiddleware, changeUserName)
 
 module.exports = router

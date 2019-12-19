@@ -15,7 +15,6 @@ module.exports.getLoginData = (req, res, id) => {
 module.exports.changePwd = (req, res, pwd, id) => {
     mysqlConnection.query(`UPDATE user SET pwd='${pwd}' WHERE id='${id}'`, (err, row, field) => {
         if (!err) {
-            console.log("successfully updated")
             res.status(200).json(response({ success: true, message: 'updating your password!' }))
         } else {
             res.json(response({ success: false, message: err }))

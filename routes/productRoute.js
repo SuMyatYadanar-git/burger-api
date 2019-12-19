@@ -13,16 +13,17 @@ const upload = multer({ storage: storage }).single('productImage')
 
 const router = express.Router()
 
-const { getAllproduct, newProduct, deleteProduct } = require('../controller/productController')
+const { getAllproduct, newProduct, deleteProduct,updateProduct,updateDeleteProduct } = require('../controller/productController')
 const { authenticationMiddleware } = require('./authenticationMiddleware')
 
 //  router.use(authenticationMiddleware)
 
 router.get('/', getAllproduct)
 
-router.post('/', authenticationMiddleware, (req, res) => newProduct(req, res, upload))
+router.post('/', authenticationMiddleware,(req, res) => newProduct(req, res, upload))
 
-router.delete('/:id',  deleteProduct)
-// router.post('/', (req, res)=>newCategory(req, res, upload))
+router.put('/:id',authenticationMiddleware, (req, res) => updateProduct(req, res, upload))
+
+router.patch('/delete-product/:id',authenticationMiddleware,updateDeleteProduct)
 
 module.exports = router

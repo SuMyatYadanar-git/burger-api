@@ -1,8 +1,8 @@
 const config = {
     database: {
-        host: 'localhost',
-        user: 'root',
-        password: 'root',
+        host:'172.105.123.57' , 
+        user: 'kumo',
+        password: 'kum0p@ssw0rd',
         port: 3306,
         database: 'burger_db'
     },

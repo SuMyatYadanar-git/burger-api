@@ -1,16 +1,13 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const multer = require('multer')
 const cors = require('cors')
 const path = require('path')
 
-// const upload = multer({ dest: '/uploads/' })
 const config = require('./config/config')
 const indexRoute = require('./routes/indexRoute')
 
 const port = config.server.port
-
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))

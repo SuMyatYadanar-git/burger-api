@@ -7,7 +7,7 @@ module.exports.authenticationMiddleware = (req, res, next) => {
         const bearerToken = bearer[1]
         req.token = bearerToken
         jwt.verify(req.token, 'forAuthenticationSecurityTokenofburgershop', (err, authData) => {
-            if (err) { res.sendStatus(401).json({err}) }
+            if (err) { res.sendStatus(401).json({ err }) }
             else {
                 next()
             }

@@ -12,18 +12,8 @@ module.exports.changePwd = (req, res) => {
     dao.changePwd(req, res, pwd, id)
 }
 
-module.exports.changeUserName =(req,res)=>{
-    const name= req.body.info.name
+module.exports.changeUserName = (req, res) => {
+    const name = req.body.info.name.trim()
     const id = req.body.info.id
-    dao.changeUserName(req,res,name,id)
+    dao.changeUserName(req, res, name, id)
 }
-
-// module.exports.changePwd = (req, res) => {
-//     mysqlConnection.query(`UPDATE SET user pwd=='${req.body.pwd}' WHERE id='${req.body.id}'`, (err, row, field) => {
-//         if (!err) {
-//             res.status(200).json({ success: true })
-//         } else {
-//             console.log('error', err)
-//         }
-//     })
-// }

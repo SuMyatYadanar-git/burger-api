@@ -8,21 +8,22 @@ const storage = multer.diskStorage({
         callback(null, 'public/uploads')
     },
     filename: function (req, file, callback) {
-        // console.log(new Date().toISOString())
         callback(null, Date.now() + "_" + file.originalname)
     }
 })
 const upload = multer({ storage: storage }).single('profileImage')
 
-const { getAllprofile, NewProfile,deleteProfile } = require('../controller/profileController')
+const { getAllprofile, NewProfile, deleteProfile,UpdateAllProfile,updateDeleteProfile } = require('../controller/profileController')
 const { authenticationMiddleware } = require('./authenticationMiddleware')
 
 // router.use(authenticationMiddleware)
 
 router.get('/', getAllprofile)
 
-router.post('/',authenticationMiddleware, (req, res) => NewProfile(req, res, upload))
+router.post('/', authenticationMiddleware,(req, res) => NewProfile(req, res, upload))
 
-router.delete('/:id',deleteProfile)
+router.put('/:id', authenticationMiddleware,(req, res) => UpdateAllProfile(req, res, upload))
+
+router.patch('/delete-profile/:id',authenticationMiddleware,updateDeleteProfile)
 
 module.exports = router
