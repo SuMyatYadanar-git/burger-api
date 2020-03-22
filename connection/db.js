@@ -7,7 +7,7 @@ mc.getConnection((err) => {
     if (!err) {
         console.log('connected with database')
     } else {
-        console.log('connection failed', err)
+        console.log('connection failed with mysql_db', err)
     }
 });
 
